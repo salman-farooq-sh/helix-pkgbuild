@@ -2,16 +2,18 @@
 # Contributor: Wojciech Kępka (wojciech@wkepka.dev) 
 pkgname=helix-git
 _pkgname=helix
-pkgver=23.10.r237.g0d09fb4f5
+pkgver=23.10.r461.g527cbe656
 pkgrel=1
 pkgdesc="A text editor written in rust"
 url="https://helix-editor.com"
+license=("MPL-2.0")
 _git="https://github.com/helix-editor/${_pkgname}.git"
 arch=(x86_64)
 makedepends=('git' 'cargo')
 depends=()
 provides=('hx')
 conflicts=('helix')
+options=(!lto)
 source=("${_pkgname}::git+${_git}")
 sha256sums=('SKIP')
 
@@ -50,6 +52,7 @@ check() {
     export RUSTUP_TOOLCHAIN=stable
     export CARGO_TARGET_DIR=target
     cargo test --frozen --offline --workspace
+    export RUSTFLAGS="${RUSTFLAGS} --cfg tokio_unstable"
     cargo integration-test --frozen --offline
 }
 
