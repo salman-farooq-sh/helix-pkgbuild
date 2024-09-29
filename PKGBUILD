@@ -1,18 +1,18 @@
 # Maintainer: Robin Jadoul (aur@ur4ndom.dev) 
 # Contributor: Wojciech Kępka (wojciech@wkepka.dev) 
-pkgname=helix-git
+pkgname=helix-salman
 _pkgname=helix
-pkgver=24.07.r114.g518425e05
+pkgver=b6069375267b1f5a145752a96fe7d73b22c99df0
 pkgrel=1
 pkgdesc="A text editor written in rust"
 url="https://helix-editor.com"
 license=("MPL-2.0")
-_git="https://github.com/helix-editor/${_pkgname}.git"
+_git="https://github.com/salman-farooq-sh/${_pkgname}.git"
 arch=(x86_64)
 makedepends=('git' 'cargo')
 depends=()
 provides=('hx')
-conflicts=('helix')
+conflicts=('helix' 'helix-git')
 options=(!lto)
 source=("${_pkgname}::git+${_git}")
 sha256sums=('SKIP')
@@ -24,7 +24,7 @@ _rt_path="${_lib_path}/runtime"
 
 pkgver() {
     cd "${_pkgname}"
-    git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+    git log -n 1 --pretty=format:"%H"
 }
 
 prepare() {

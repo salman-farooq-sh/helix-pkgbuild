@@ -1,4 +1,4 @@
-pkgbase = helix-git
+pkgbase = helix-salman
 	pkgdesc = A text editor written in rust
 	pkgver = 24.07.r114.g518425e05
 	pkgrel = 1
@@ -8,9 +8,9 @@ pkgbase = helix-git
 	makedepends = git
 	makedepends = cargo
 	provides = hx
-	conflicts = helix
+	conflicts = helix helix-git
 	options = !lto
-	source = helix::git+https://github.com/helix-editor/helix.git
+	source = helix::git+https://github.com/salman-farooq-sh/helix.git
 	sha256sums = SKIP
 
-pkgname = helix-git
+pkgname = helix-salman
