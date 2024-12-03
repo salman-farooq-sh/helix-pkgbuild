@@ -2,7 +2,7 @@
 # Contributor: Wojciech Kępka (wojciech@wkepka.dev) 
 pkgname=helix-salman
 _pkgname=helix
-pkgver=b6069375267b1f5a145752a96fe7d73b22c99df0
+pkgver=2f134f5cd81ae02fc27b2673828268b21376065f
 pkgrel=1
 pkgdesc="A text editor written in rust"
 url="https://helix-editor.com"
